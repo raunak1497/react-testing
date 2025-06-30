@@ -47,4 +47,20 @@ describe('Counter', ()=>{
         expect(countElement).toHaveTextContent("2");  
 
     })
+
+    test('renders a count of 10 after clicking set button', async ()=> {
+        userEvent.setup()
+        render(<Counter />);
+        const amountInput = screen.getByRole('spinbutton')
+        await userEvent.type(amountInput, '10');
+        expect(amountInput).toHaveValue(10)
+        const setButton = screen.getByRole('button', {
+            name: 'Set'
+        })
+        await userEvent.click(setButton)
+        const countElement = screen.getByRole("heading")
+        expect(countElement).toHaveTextContent("10");
+    })
+
+    test
 })
