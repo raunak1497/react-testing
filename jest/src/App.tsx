@@ -1,9 +1,9 @@
 import './App.css'
-import { Application } from './components/application/application'
+// import { Application } from './components/application/application'
 // import { CounterTwo } from './components/counter-two/CounterTwo'
-// import { Counter } from './components/counter/Counter'
+import { Counter } from './components/counter/counter'
 // import { MuiMode } from './components/mui/MuiMode'
-import { Skills } from './components/skills/Skills'
+// import { Skills } from './components/skills/Skills'
 // import { Users } from './components/users/Users'
 // import { AppProviders } from './providers/AppProviders'
 
@@ -12,11 +12,11 @@ function App() {
     // <AppProviders>
       <div className="App">
         {/* <Application /> */}
-        <Skills skills={['HTML', 'CSS']} />
-        {/* <Counter />
-        <CounterTwo count={1} />
-        <Users />
-        <MuiMode /> */}
+        {/* <Skills skills={['HTML', 'CSS']} /> */}
+        <Counter />
+        {/* <CounterTwo count={1} /> */}
+        {/* <Users /> */}
+        {/* <MuiMode /> */}
       </div>
     // </AppProviders>
   )
