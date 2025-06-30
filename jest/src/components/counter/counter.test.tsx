@@ -38,7 +38,7 @@ describe('Counter', ()=>{
     test('renders count of 2 after clicking the increment button twice', async ()=>{
         userEvent.setup()
         render(<Counter />)
-         const incrementButton = screen.getByRole('button', {
+        const incrementButton = screen.getByRole('button', {
             name: 'Increment'
         });
         await userEvent.click(incrementButton)
@@ -62,5 +62,22 @@ describe('Counter', ()=>{
         expect(countElement).toHaveTextContent("10");
     })
 
-    test
+    test('elements are focused in right order', async ()=>{
+        userEvent.setup()
+        render(<Counter />);
+        const amountInput = screen.getByRole('spinbutton');
+        const setButton = screen.getByRole('button', {
+            name: 'Set'
+        })
+        const incrementButton = screen.getByRole('button', {
+            name: 'Increment'
+        });
+
+        await userEvent.tab();
+        expect(incrementButton).toHaveFocus()
+        await userEvent.tab();
+        expect(amountInput).toHaveFocus()
+        await userEvent.tab();
+        expect(setButton).toHaveFocus()
+    })
 })
